@@ -1,6 +1,6 @@
 body {
     /* image for background */
-    background-image: url('./low_contrast_linen.png');
+    background-image: url("../low_contrast_linen.png");
   
     /* font parameters */
     font-family: Arial, Helvetica, sans-serif;
