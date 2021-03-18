@@ -18,10 +18,6 @@ $(document).ready(function() {
     var $text4PM = $("#text4PM");
     var $text5PM = $("#text5PM");
 
-    var timeArray = [9, "10", "11", "12", "13", "14", "15", "16", "17"]
-
-    // console.log("what is the now value? " + currentTime);
-
     //changing the colors of the schedule block
 
     $("textarea").each(function() {
@@ -62,10 +58,3 @@ $("#text3PM").append(localStorage.getItem("3PM"));
 $("#text4PM").append(localStorage.getItem("4PM"));
 $("#text5PM").append(localStorage.getItem("5PM"));
 });
-
-
-//    if (currentTime == 9 ) {
-//         $(`.TextBoxColors-${timeArray[0]}`).css('background-color', 'red')
-//        for (i = 1; i<timeArray.length; i++) {
-//            $(`.TextBoxColors-${timeArray[i]}`).css('background-color', 'green')
-//        };
