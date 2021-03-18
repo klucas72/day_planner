@@ -5,6 +5,9 @@ $(document).ready(function() {
     var $dateHeading = $('#navbar-subtitle');
     $dateHeading.text(now);
 
+    let currentTime = moment().format("H");
+
+    //create variables of each time frame
     var $text9AM = $("#text9AM");
     var $text10AM = $("#text10AM");
     var $text11AM = $("#text11AM");
@@ -15,6 +18,18 @@ $(document).ready(function() {
     var $text4PM = $("#text4PM");
     var $text5PM = $("#text5PM");
 
+    var timeArray = [9, "10", "11", "12", "13", "14", "15", "16", "17"]
+
+    // console.log("what is the now value? " + currentTime);
+
+    //changing the colors of the schedule block
+   if (currentTime == 9 ) {
+        $(`.TextBoxColors-${timeArray[0]}`).css('background-color', 'red')
+       for (i = 1; i<timeArray.length; i++) {
+           $(`.TextBoxColors-${timeArray[i]}`).css('background-color', 'green')
+       };
+   }
+//setting local storage
     $("button").on("click", function() {
         localStorage.setItem("9AM", ($text9AM.val()));
         localStorage.setItem("10AM", ($text10AM.val()));
@@ -27,6 +42,7 @@ $(document).ready(function() {
         localStorage.setItem("5PM", ($text5PM.val()));
     });
 
+    //recovering localstorage
     $("#text9AM").append(localStorage.getItem("9AM"));
     $("#text10AM").append(localStorage.getItem("10AM"));
     $("#text11AM").append(localStorage.getItem("11AM"));
