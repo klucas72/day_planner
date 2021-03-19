@@ -5,22 +5,22 @@ $(document).ready(function() {
     var $dateHeading = $('#navbar-subtitle');
     $dateHeading.text(now);
 
-    var currentTime = parseInt(moment().format("HH"));
-
+    
     //create variables of each time frame
-    var $text9AM = $("#text9AM");
-    var $text10AM = $("#text10AM");
-    var $text11AM = $("#text11AM");
-    var $text12PM = $("#text12PM");
-    var $text1PM = $("#text1PM");
-    var $text2PM = $("#text2PM");
-    var $text3PM = $("#text3PM");
-    var $text4PM = $("#text4PM");
-    var $text5PM = $("#text5PM");
-
+    var $text9am = $("#text9AM");
+    var $text10am = $("#text10AM");
+    var $text11am = $("#text11AM");
+    var $text12pm = $("#text12PM");
+    var $text1pm = $("#text1PM");
+    var $text2pm = $("#text2PM");
+    var $text3pm = $("#text3PM");
+    var $text4pm = $("#text4PM");
+    var $text5pm = $("#text5PM");
+    
     //changing the colors of the schedule block
-
+    
     $("textarea").each(function() {
+        var currentTime = parseInt(moment().format("HH"));
         var name = parseInt($(this).attr("name"));
         if (name < currentTime) {
             $(this).css("background-color", "gray");
@@ -36,15 +36,15 @@ $(document).ready(function() {
     })
 //setting local storage
 $("button").on("click", function() {
-    localStorage.setItem("9AM", ($text9AM.val()));
-    localStorage.setItem("10AM", ($text10AM.val()));
-    localStorage.setItem("11AM", ($text11AM.val()));
-    localStorage.setItem("12PM", ($text12PM.val()));
-    localStorage.setItem("1PM", ($text1PM.val()));
-    localStorage.setItem("2PM", ($text2PM.val()));
-    localStorage.setItem("3PM", ($text3PM.val()));
-    localStorage.setItem("4PM", ($text4PM.val()));
-    localStorage.setItem("5PM", ($text5PM.val()));
+    localStorage.setItem("9AM", ($text9am.val()));
+    localStorage.setItem("10AM", ($text10am.val()));
+    localStorage.setItem("11AM", ($text11am.val()));
+    localStorage.setItem("12PM", ($text12pm.val()));
+    localStorage.setItem("1PM", ($text1pm.val()));
+    localStorage.setItem("2PM", ($text2pm.val()));
+    localStorage.setItem("3PM", ($text3pm.val()));
+    localStorage.setItem("4PM", ($text4pm.val()));
+    localStorage.setItem("5PM", ($text5pm.val()));
 });
 
 //recovering localstorage
