@@ -5,7 +5,6 @@ $(document).ready(function() {
     var $dateHeading = $('#navbar-subtitle');
     $dateHeading.text(now);
 
-    
     //create variables of each time frame
     var $text9am = $("#text9AM");
     var $text10am = $("#text10AM");
