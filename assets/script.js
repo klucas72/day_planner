@@ -1,7 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
     //setting up date and time for today's date
     var now = moment().format('MMMM Do YYYY');
-    
+    console.log(now);
+
+
     var $dateHeading = $('#navbar-subtitle');
     $dateHeading.text(now);
 
@@ -15,11 +17,15 @@ $(document).ready(function() {
     var $text3pm = $("#text3PM");
     var $text4pm = $("#text4PM");
     var $text5pm = $("#text5PM");
-    
+
     //changing the colors of the schedule block
-    
-    $("textarea").each(function() {
-        var currentTime = parseInt(moment().format("HH"));
+
+    //code to test currentTime and color changes
+    // let currentTime = moment().add(15, 'hours').format("H")
+    // console.log(currentTime);
+
+    $("textarea").each(function () {
+        var currentTime = parseInt(moment().add(15, 'hours').format("HH"));
         var name = parseInt($(this).attr("name"));
         if (name < currentTime) {
             $(this).css("background-color", "gray");
@@ -29,31 +35,32 @@ $(document).ready(function() {
             $(this).css("background-color", "green");
         }
 
-        if(name === currentTime) {
+        if (name === currentTime) {
             $(this).css("background-color", "red");
         }
     })
-//setting local storage
-$("button").on("click", function() {
-    localStorage.setItem("9AM", ($text9am.val()));
-    localStorage.setItem("10AM", ($text10am.val()));
-    localStorage.setItem("11AM", ($text11am.val()));
-    localStorage.setItem("12PM", ($text12pm.val()));
-    localStorage.setItem("1PM", ($text1pm.val()));
-    localStorage.setItem("2PM", ($text2pm.val()));
-    localStorage.setItem("3PM", ($text3pm.val()));
-    localStorage.setItem("4PM", ($text4pm.val()));
-    localStorage.setItem("5PM", ($text5pm.val()));
-});
 
-//recovering localstorage
-$("#text9AM").append(localStorage.getItem("9AM"));
-$("#text10AM").append(localStorage.getItem("10AM"));
-$("#text11AM").append(localStorage.getItem("11AM"));
-$("#text12PM").append(localStorage.getItem("12PM"));
-$("#text1PM").append(localStorage.getItem("1PM"));
-$("#text2PM").append(localStorage.getItem("2PM"));
-$("#text3PM").append(localStorage.getItem("3PM"));
-$("#text4PM").append(localStorage.getItem("4PM"));
-$("#text5PM").append(localStorage.getItem("5PM"));
+    //setting local storage
+    $("button").on("click", function () {
+        localStorage.setItem("9AM", ($text9am.val()));
+        localStorage.setItem("10AM", ($text10am.val()));
+        localStorage.setItem("11AM", ($text11am.val()));
+        localStorage.setItem("12PM", ($text12pm.val()));
+        localStorage.setItem("1PM", ($text1pm.val()));
+        localStorage.setItem("2PM", ($text2pm.val()));
+        localStorage.setItem("3PM", ($text3pm.val()));
+        localStorage.setItem("4PM", ($text4pm.val()));
+        localStorage.setItem("5PM", ($text5pm.val()));
+    });
+
+    //recovering localstorage
+    $("#text9AM").append(localStorage.getItem("9AM"));
+    $("#text10AM").append(localStorage.getItem("10AM"));
+    $("#text11AM").append(localStorage.getItem("11AM"));
+    $("#text12PM").append(localStorage.getItem("12PM"));
+    $("#text1PM").append(localStorage.getItem("1PM"));
+    $("#text2PM").append(localStorage.getItem("2PM"));
+    $("#text3PM").append(localStorage.getItem("3PM"));
+    $("#text4PM").append(localStorage.getItem("4PM"));
+    $("#text5PM").append(localStorage.getItem("5PM"));
 });
